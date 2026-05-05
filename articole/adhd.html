@@ -3,45 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADHD la Adulți: Ghid Complet - MindCheck</title>
+    <title>Arhitecții Haosului: Viața cu ADHD - MindCheck</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        /* Corecții pentru lizibilitate pe fundal închis */
-        .article-content { color: var(--text-primary); }
-        .highlight-box { 
-            background: rgba(99, 102, 241, 0.1); 
+        /* Ajustări pentru textul lung și emoționant */
+        .article-content { max-width: 800px; line-height: 1.9; }
+        .intro-text { font-size: 1.4rem; color: var(--accent); font-weight: 600; margin-bottom: 30px; line-height: 1.5; }
+        .quote-box { 
+            font-style: italic; 
             border-left: 4px solid var(--accent); 
-            padding: 25px; 
-            border-radius: 12px; 
-            margin: 30px 0; 
+            padding: 20px 30px; 
+            margin: 40px 0; 
+            background: rgba(99, 102, 241, 0.05);
+            font-size: 1.2rem;
+            color: #e2e8f0;
         }
-        .highlight-box h3 { color: var(--accent); margin-top: 0; }
-        
-        /* Quiz Styling */
-        .quiz-card {
-            background: var(--bg-card);
+        h2 { margin-top: 50px; color: var(--text-primary); font-size: 1.8rem; }
+        .sub-section { margin-bottom: 30px; color: var(--text-muted); }
+        .highlight-text { color: var(--text-primary); font-weight: 600; }
+
+        /* Quiz UI - Dark Premium */
+        .quiz-wrapper {
+            background: rgba(30, 41, 59, 0.5);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
-            padding: 40px;
-            margin-top: 60px;
+            padding: 50px;
+            margin-top: 80px;
+            backdrop-filter: blur(10px);
         }
-        .progress-container { height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; margin-bottom: 30px; }
+        .progress-wrap { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-bottom: 40px; }
         .progress-fill { height: 100%; background: var(--accent-gradient); width: 0%; transition: 0.4s; }
         
-        .question-step { display: none; }
-        .question-step.active { display: block; animation: fadeIn 0.4s; }
+        .step { display: none; }
+        .step.active { display: block; animation: slideUp 0.4s ease-out; }
         
-        .opt-btn {
-            display: block; width: 100%; padding: 16px; margin-bottom: 12px;
-            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-            border-radius: 12px; color: white; text-align: left; cursor: pointer;
-            font-size: 1rem; transition: 0.3s;
+        .opt {
+            display: block; width: 100%; padding: 18px; margin-bottom: 12px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+            border-radius: 14px; color: white; text-align: left; cursor: pointer;
+            font-size: 1.05rem; transition: 0.2s;
         }
-        .opt-btn:hover { background: var(--accent); border-color: var(--accent); transform: translateX(5px); }
+        .opt:hover { background: var(--accent); border-color: var(--accent); color: white; transform: translateY(-2px); }
         
-        #result-display { display: none; text-align: center; padding: 30px; border-radius: 20px; margin-top: 20px; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        #final-res { display: none; text-align: center; padding: 40px; border-radius: 20px; }
     </style>
 </head>
 <body>
@@ -49,133 +55,135 @@
 <nav><div class="container"><a href="../index.html" class="logo">MINDCHECK</a></div></nav>
 
 <div class="container">
-    <article class="article-content">
-        <header style="margin-bottom: 50px; text-align: center;">
-            <h1 style="font-size: 3.5rem; letter-spacing: -2px;">ADHD la Adulți: <br><span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dincolo de Suprafață</span></h1>
+    <article class="article-content" style="margin: 80px auto;">
+        <header>
+            <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px;">Arhitecții Haosului:<br> 
+            <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cum se simte, de fapt, viața cu ADHD</span></h1>
         </header>
 
-        <section>
-            <p>ADHD (Tulburarea de Deficit de Atenție și Hiperactivitate) nu este doar o problemă a copilăriei. Pentru mulți adulți, este o realitate zilnică invizibilă, caracterizată prin „zgomot mental” constant și dificultăți în gestionarea fluxului executiv.</p>
-            
-            <div class="highlight-box">
-                <h3>Neuroștiința din spatele ADHD</h3>
-                <p>Cercetările moderne indică faptul că ADHD este legat de modul în care creierul procesează dopamina și norepinefrina, în special în cortexul prefrontal. Acesta nu este un defect de caracter sau o lipsă de voință, ci o diferență structurală în modul în care creierul prioritizează informația.</p>
-            </div>
+        <p class="intro-text">Există o oboseală despre care nu se vorbește în manualele de psihologie. Nu este oboseala mușchilor după maraton, ci epuizarea unei minți care a încercat, timp de 16 ore, să „pară normală”.</p>
 
-            <h2>Statistici și Date Clinice</h2>
-            <p>Conform studiilor publicate în <em>The Lancet Psychiatry</em>, prevalența ADHD la adulți este de aproximativ 2.5% la nivel mondial. Mai grav este faptul că peste 50% dintre acești adulți rămân nediagnosticați, trăind cu o senzație constantă de eșec sau copleșire.</p>
+        <p>Pentru un om cu ADHD, lumea nu este o listă de sarcini, ci un foc de artificii continuu, unde fiecare scânteie cere atenție imediată.</p>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0;">
-                <div class="card" style="padding: 20px;">
-                    <h4 style="color: #ef4444;">⚠️ Provocări</h4>
-                    <ul style="font-size: 0.9rem; padding-left: 20px;">
-                        <li>Disfuncție executivă severă</li>
-                        <li>Sensibilitate la respingere (RSD)</li>
-                        <li>Procrastinare paralizantă</li>
-                    </ul>
-                </div>
-                <div class="card" style="padding: 20px;">
-                    <h4 style="color: #22c55e;">🚀 Potențial</h4>
-                    <ul style="font-size: 0.9rem; padding-left: 20px;">
-                        <li>Capacitate de Hiperfocus</li>
-                        <li>Gândire laterală (Creativitate)</li>
-                        <li>Reziliență sub presiune</li>
-                    </ul>
-                </div>
-            </div>
+        <h2>1. Mitul „Motorului fără frâne”</h2>
+        <p class="sub-section">Se spune adesea că ADHD este ca și cum ai avea un motor de Ferrari, dar frâne de bicicletă. Este o metaforă validă, dar incompletă. A trăi cu ADHD înseamnă, de fapt, să fii un călător în timp involuntar.</p>
+        <p class="sub-section">Trecutul este o bibliotecă de momente în care ai uitat ceva important, iar viitorul este un munte de anxietate despre ce vei mai uita de acum încolo. <span class="highlight-text">„Acum-ul”</span> este singurul spațiu în care poți respira, dar și acolo, liniștea este un lux pe care rar ți-l permiți.</p>
 
-            <h2>Mituri Demontate</h2>
-            <p><strong>Mit:</strong> Persoanele cu ADHD nu se pot concentra.<br>
-            <strong>Realitate:</strong> Se pot concentra extrem de tare (Hiperfocus), dar au dificultăți în a <em>direcționa</em> acea concentrare către sarcini care nu oferă o stimulare imediată de dopamină.</p>
-        </section>
+        <h2>2. Durerea invizibilă a „lucrurilor simple”</h2>
+        <p>Ceea ce pentru alții este o rutină — spălatul vaselor, plata unei facturi, trimiterea unui e-mail — pentru cineva cu ADHD poate fi un Everest mental.</p>
+        <ul>
+            <li style="margin-bottom: 15px;"><span class="highlight-text">Paralizia decizională:</span> Când ai 10 lucruri de făcut și mintea ta nu poate decide care este prioritatea, sfârșești prin a nu face nimic, înțepenit pe canapea sub greutatea propriei neputințe.</li>
+            <li><span class="highlight-text">Zgomotul alb al gândurilor:</span> Imaginați-vă că încercați să citiți o carte în timp ce într-o cameră alăturată cineva dă o petrecere, un televizor merge pe știri și un copil plânge. Aceasta este „liniștea” interioară a unui adult cu ADHD.</li>
+        </ul>
 
-        <!-- QUIZ MODULE -->
-        <div class="quiz-card" id="quiz-wrapper">
-            <h2 style="text-align: center; margin-bottom: 5px;">Autoevaluare ASRS v1.1</h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Identifică tiparele tale comportamentale (12 întrebări)</p>
-            
-            <div class="progress-container"><div class="progress-fill" id="bar"></div></div>
-            
-            <div id="quiz-steps"></div>
-
-            <div id="result-display">
-                <h2 id="res-title"></h2>
-                <p id="res-text" style="margin-bottom: 20px;"></p>
-                <button class="btn" onclick="location.reload()">Resetare Test</button>
-            </div>
+        <h2>3. Hiper-concentrarea: Blestemul și Binecuvântarea</h2>
+        <p>Lumea ne vede „distrași”, dar uită că suntem capabili de o concentrare atât de intensă, încât restul universului dispare. Când un subiect ne atinge sufletul, ADHD-ul se transformă dintr-un handicap într-o superputere de nișă.</p>
+        
+        <div class="quote-box">
+            „Nu suntem neatenți la lume, suntem prea atenți la prea multe lumi deodată.”
         </div>
+
+        <h2>4. O inimă care simte „prea mult”</h2>
+        <p>Dincolo de agitație, ADHD înseamnă o intensitate emoțională copleșitoare.</p>
+        <ul>
+            <li style="margin-bottom: 10px;"><span class="highlight-text">Disforia sensibilă la respingere:</span> O critică constructivă poate fi resimțită ca o rană fizică.</li>
+            <li style="margin-bottom: 10px;"><span class="highlight-text">Entuziasmul molipsitor:</span> Atunci când suntem fericiți, bucuria noastră poate lumina un întreg cartier.</li>
+        </ul>
+
+        <div class="highlight-box" style="background: rgba(168, 85, 247, 0.1); border-left-color: #a855f7; padding: 30px; border-radius: 20px; margin-top: 40px;">
+            <h3 style="margin-top: 0; color: #a855f7;">Un ultim gând</h3>
+            <p style="margin-bottom: 0;">Dacă ai ADHD, încetează să te mai cerți pentru că nu ești un ceas elvețian. Ești, mai degrabă, un spectacol de jazz: imprevizibil, uneori disonant, dar incredibil de viu și plin de suflet.</p>
+        </div>
+
+        <!-- QUIZ INTEGRAT -->
+        <section class="quiz-wrapper">
+            <h2 style="text-align: center; margin-top: 0;">Ești un Arhitect al Haosului?</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">Evaluează-ți trăsăturile folosind scala ASRS v1.1</p>
+            
+            <div class="progress-wrap"><div class="progress-fill" id="pb"></div></div>
+            <div id="steps-container"></div>
+
+            <div id="final-res">
+                <h2 id="f-title"></h2>
+                <p id="f-text" style="margin-bottom: 30px;"></p>
+                <button class="btn" onclick="location.reload()">Reîncepe Testul</button>
+            </div>
+        </section>
     </article>
 </div>
 
 <script>
-    const questions = [
-        "Dificultăți în a termina detaliile unui proiect după ce părțile grele au fost gata?",
-        "Probleme în a organiza lucrurile când ai de făcut o sarcină planificată?",
-        "Uiți frecvent de întâlniri sau obligații importante?",
-        "Eviți sarcinile care necesită efort mental susținut?",
-        "Te foiești sau îți miști mâinile/picioarele când stai jos?",
-        "Te simți 'condus de un motor', ca și cum nu poți sta locului?",
-        "Faci greșeli din neglijență la sarcini plictisitoare?",
-        "Dificultăți în a-ți menține atenția la muncă?",
-        "Probleme în a te concentra la ce ți se spune direct?",
-        "Pierzi frecvent lucruri (chei, telefon, documente)?",
-        "Ești distras ușor de zgomote sau stimuli externi?",
-        "Părăsești locul în situații în care ar trebui să rămâi așezat?"
+    const qs = [
+        "Dificultatea de a finaliza detaliile finale ale unui proiect?",
+        "Probleme în a organiza sarcinile ce necesită planificare?",
+        "Uiți frecvent de întâlniri sau obligații?",
+        "Eviți sarcinile care cer efort mental susținut?",
+        "Te foiești sau îți miști mâinile când trebuie să stai jos?",
+        "Te simți 'condus de un motor' interior?",
+        "Faci greșeli din neglijență la sarcini monotone?",
+        "Dificultăți în a-ți menține concentrarea la muncă?",
+        "Probleme în a asculta când cineva îți vorbește direct?",
+        "Pierzi des lucruri necesare (chei, acte, telefon)?",
+        "Distragerea ușoară de stimuli din mediul exterior?",
+        "Părăsești locul în situații în care ar trebui să stai jos?"
     ];
 
-    const container = document.getElementById('quiz-steps');
-    let currentStep = 0;
-    let score = 0;
+    const stepContainer = document.getElementById('steps-container');
+    let activeIdx = 0;
+    let totalScore = 0;
 
-    questions.forEach((q, i) => {
-        const div = document.createElement('div');
-        div.className = `question-step ${i === 0 ? 'active' : ''}`;
-        div.id = `q-${i}`;
-        div.innerHTML = `
-            <p style="color: var(--accent); font-weight: bold;">Întrebarea ${i+1}/12</p>
-            <h3 style="margin-bottom: 25px;">${q}</h3>
-            <button class="opt-btn" onclick="handleNext(0)">Niciodată</button>
-            <button class="opt-btn" onclick="handleNext(1)">Rar</button>
-            <button class="opt-btn" onclick="handleNext(2)">Uneori</button>
-            <button class="opt-btn" onclick="handleNext(3)">Des</button>
-            <button class="opt-btn" onclick="handleNext(4)">Foarte Des</button>
+    qs.forEach((q, i) => {
+        const d = document.createElement('div');
+        d.className = `step ${i === 0 ? 'active' : ''}`;
+        d.id = `step-${i}`;
+        d.innerHTML = `
+            <p style="color: var(--accent); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Pasul ${i+1} / 12</p>
+            <h3 style="margin-bottom: 30px; font-size: 1.5rem;">${q}</h3>
+            <div style="display: grid; gap: 10px;">
+                <button class="opt" onclick="move(0)">Niciodată</button>
+                <button class="opt" onclick="move(1)">Rar</button>
+                <button class="opt" onclick="move(2)">Uneori</button>
+                <button class="opt" onclick="move(3)">Des</button>
+                <button class="opt" onclick="move(4)">Foarte Des</button>
+            </div>
         `;
-        container.appendChild(div);
+        stepContainer.appendChild(d);
     });
 
-    function handleNext(val) {
-        score += val;
-        document.getElementById(`q-${currentStep}`).classList.remove('active');
-        currentStep++;
+    function move(v) {
+        totalScore += v;
+        document.getElementById(`step-${activeIdx}`).classList.remove('active');
+        activeIdx++;
         
-        if(currentStep < questions.length) {
-            document.getElementById(`q-${currentStep}`).classList.add('active');
-            document.getElementById('bar').style.width = (currentStep / questions.length * 100) + '%';
+        if(activeIdx < qs.length) {
+            document.getElementById(`step-${activeIdx}`).classList.add('active');
+            document.getElementById('pb').style.width = (activeIdx / qs.length * 100) + '%';
         } else {
-            showFinal();
+            finish();
         }
     }
 
-    function showFinal() {
-        document.querySelector('.progress-container').style.display = 'none';
-        const display = document.getElementById('result-display');
-        display.style.display = 'block';
-        const title = document.getElementById('res-title');
-        const text = document.getElementById('res-text');
+    function finish() {
+        document.querySelector('.progress-wrap').style.display = 'none';
+        const fr = document.getElementById('final-res');
+        fr.style.display = 'block';
+        const ft = document.getElementById('f-title');
+        const ftxt = document.getElementById('f-text');
 
-        if(score <= 15) {
-            title.innerText = "Scor Scăzut";
-            text.innerText = "Simptomele tale nu indică prezența unui ADHD clinic.";
-            display.style.background = "rgba(34, 197, 94, 0.2)";
-        } else if(score <= 30) {
-            title.innerText = "Scor Moderat";
-            text.innerText = "Prezinți trăsături semnificative. Recomandăm monitorizare.";
-            display.style.background = "rgba(234, 179, 8, 0.2)";
+        if(totalScore <= 15) {
+            ft.innerText = "Simptome Minime";
+            ftxt.innerText = "Tiparele tale nu indică o neurodivergență de tip ADHD în acest moment.";
+            fr.style.background = "rgba(34, 197, 94, 0.1)";
+        } else if(totalScore <= 30) {
+            ft.innerText = "Trăsături Moderate";
+            ftxt.innerText = "Ai multe dintre caracteristicile 'Arhitecților Haosului'. Ar fi util să înțelegi mai bine mecanismele tale de adaptare.";
+            fr.style.background = "rgba(234, 179, 8, 0.1)";
         } else {
-            title.innerText = "Scor Ridicat";
-            text.innerText = "Simptome puternic corelate cu ADHD. Consultă un specialist.";
-            display.style.background = "rgba(239, 68, 68, 0.2)";
+            ft.innerText = "Indicatori Puternici";
+            ftxt.innerText = "Scorul tău este ridicat. Această intensitate a simptomelor merită o discuție cu un specialist pentru a-ți ușura viața.";
+            fr.style.background = "rgba(239, 68, 68, 0.1)";
         }
+        fr.scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 
