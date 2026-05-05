@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiză Detaliată: ADHD la Adulți - MindCheck</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .source-link { color: var(--primary); font-size: 0.9rem; text-decoration: none; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .stat-card { background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; text-align: center; }
+        .stat-card span { display: block; font-size: 2rem; font-weight: 800; color: var(--primary); }
+        .section-box { margin-bottom: 30px; padding: 25px; border-radius: 15px; }
+        .pro { background: #f0fdf4; border-left: 5px solid #22c55e; }
+        .con { background: #fef2f2; border-left: 5px solid #ef4444; }
+        
+        /* Stiluri Test */
+        .test-box { background: #f8fafc; padding: 30px; border-radius: 20px; margin-top: 50px; border: 2px solid #e2e8f0; }
+        .q-block { background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #edf2f7; }
+        .options { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .option { cursor: pointer; padding: 8px 15px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; background: white; transition: 0.2s; }
+        .option:hover { border-color: var(--primary); background: #eff6ff; }
+        .option input { margin-right: 5px; }
+        #result-box { display: none; margin-top: 25px; padding: 25px; border-radius: 15px; text-align: center; font-weight: bold; }
+        .btn-calc { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 12px; font-size: 1.1rem; cursor: pointer; font-weight: 600; }
+    </style>
+</head>
+<body>
 
+    <nav>
+        <div class="container"><a href="../index.html" class="logo">MindCheck</a></div>
+    </nav>
+
+    <div class="container">
+        <article class="article-content">
+            <h1>ADHD la Adulți: O Perspectivă Neurobiologică și Clinică</h1>
+            
+            <p>ADHD nu este o simplă lipsă de atenție, ci o tulburare complexă a funcțiilor executive. Studiile arată că aproximativ <strong>60-70%</strong> dintre copii continuă să prezinte simptome și la vârsta adultă.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card"><span>2.5%</span><p>Prevalența globală la adulți.</p></div>
+                <div class="stat-card"><span>50%</span><p>Comorbiditate cu anxietatea.</p></div>
+            </div>
+
+            <h2>Neuroștiința din spatele comportamentului</h2>
+            <p>Cercetările prin RMN funcțional au demonstrat diferențe în <em>Cortexul Prefrontal</em>. La persoanele cu ADHD, "Rețeaua Modului Implicit" (DMN) rămâne activă chiar și în timpul sarcinilor de concentrare.</p>
+
+            <div class="section-box pro">
+                <h3>✨ Perspective Pozitive</h3>
+                <ul>
+                    <li><strong>Hiperfocus:</strong> Concentrare intensă pe subiecte pasionante.</li>
+                    <li><strong>Creativitate:</strong> Abilitatea de a face conexiuni neconvenționale.</li>
+                </ul>
+            </div>
+
+            <div class="section-box con">
+                <h3>⚠️ Provocări Clinice</h3>
+                <ul>
+                    <li><strong>Disfuncția executivă:</strong> Procrastinare și dificultăți de prioritizare.</li>
+                    <li><strong>Orbirea la timp:</strong> Dificultatea de a estima durata sarcinilor.</li>
+                </ul>
+            </div>
+
+            <h2>Surse și Referințe</h2>
+            <ul style="font-size: 0.85rem; color: #64748b;">
+                <li>American Psychiatric Association. (2013). DSM-5.</li>
+                <li>World Health Organization (WHO) - ASRS Guide.</li>
+            </ul>
+
+            <!-- SECȚIUNE TEST EXTINS -->
+            <section class="test-box">
+                <h2>Test de Autoevaluare Extins (12 Întrebări)</h2>
+                <p>Acest test evaluează prezența simptomelor de ADHD în ultimele 6 luni.</p>
+                
+                <div id="quiz"></div>
+                
+                <button class="btn-calc" onclick="calculeazaScor()">Calculează Rezultatul</button>
+                <div id="result-box"></div>
+            </section>
+        </article>
+    </div>
+
+    <script>
+        const intrebari = [
+            "Dificultatea de a finaliza detaliile unui proiect după ce părțile grele au fost gata.",
+            "Probleme în a pune lucrurile în ordine când ai de organizat o sarcină.",
+            "Probleme în a-ți aminti întâlniri, facturi sau obligații.",
+            "Amânarea sau evitarea sarcinilor care necesită mult efort mental.",
+            "Foiala sau mișcarea mâinilor/picioarelor când trebuie să stai așezat.",
+            "Senzația că ești 'condus de un motor' sau prea activ interior.",
+            "Dificultatea de a fi atent la ceea ce ți se spune direct.",
+            "Pierderea obiectelor necesare pentru sarcini (chei, telefon, documente).",
+            "Distragerea ușoară de către stimuli exteriori sau gânduri irelevante.",
+            "Părăsirea locului în situații în care este de așteptat să rămâi așezat.",
+            "Dificultatea de a te relaxa sau de a te angaja în activități de timp liber în liniște.",
+            "Tendința de a vorbi excesiv sau de a finaliza frazele celorlalți."
+        ];
+
+        const quizDiv = document.getElementById('quiz');
+        intrebari.forEach((q, i) => {
+            quizDiv.innerHTML += `
+                <div class="q-block">
+                    <p><strong>${i+1}. ${q}</strong></p>
+                    <div class="options">
+                        ${['Niciodată', 'Rar', 'Uneori', 'Des', 'Foarte Des'].map((label, v) => `
+                            <label class="option"><input type="radio" name="q${i}" value="${v}"> ${label}</label>
+                        `).join('')}
+                    </div>
+                </div>`;
+        });
+
+        function calculeazaScor() {
+            let punctaj = 0;
+            let raspunsuriDate = 0;
+            
+            for(let i=0; i<intrebari.length; i++) {
+                let sel = document.querySelector(`input[name="q${i}"]:checked`);
+                if(sel) {
+                    punctaj += parseInt(sel.value);
+                    raspunsuriDate++;
+                }
+            }
+
+            if(raspunsuriDate < intrebari.length) {
+                alert("Te rugăm să răspunzi la toate cele 12 întrebări pentru un rezultat corect.");
+                return;
+            }
+
+            const res = document.getElementById('result-box');
+            res.style.display = "block";
+            
+            // Scor maxim: 12 intrebari * 4 puncte = 48
+            if(punctaj <= 15) { 
+                res.innerHTML = `Scor: ${punctaj}/48 - Probabilitate Mică. Simptomele tale sunt în limitele normei.`; 
+                res.style.background = "#dcfce7"; res.style.color = "#166534";
+            } else if(punctaj <= 30) { 
+                res.innerHTML = `Scor: ${punctaj}/48 - Probabilitate Moderată. Prezentați trăsături semnificative de ADHD.`; 
+                res.style.background = "#fef9c3"; res.style.color = "#854d0e";
+            } else { 
+                res.innerHTML = `Scor: ${punctaj}/48 - Probabilitate Ridicată. Se recomandă insistent consultarea unui medic psihiatru.`; 
+                res.style.background = "#fee2e2"; res.style.color = "#991b1b";
+            }
+            
+            res.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
