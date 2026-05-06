@@ -4,128 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindCheck - Resurse Psihologice Moderne</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Font moale pentru vibe pastel -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;800&display=swap" rel="stylesheet">
     <style>
-        /* Hero Section Styling */
-        .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+        :root {
+            --bg-dark: #1a1c1e; /* Fundal grafit mat */
+            --card-bg: #232629;
+            --accent: #a3b18a; /* Sage Green Pastel */
+            --accent-soft: rgba(163, 177, 138, 0.15);
+            --text-primary: #e9edc9; 
+            --text-muted: #adc178;
+            --glass-border: rgba(163, 177, 138, 0.2);
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Lexend', sans-serif;
+            margin: 0;
+            line-height: 1.6;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* Grid de Articole */
+        nav { padding: 30px 0; border-bottom: 1px solid var(--glass-border); }
+        .logo { font-weight: 800; letter-spacing: 2px; color: var(--accent); text-decoration: none; font-size: 1.5rem; }
+
+        .hero { padding: 100px 0 60px; text-align: center; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--text-primary); }
+        .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem; }
+
         .article-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 60px;
+            margin-top: 50px;
         }
 
         .article-card {
-            background: rgba(30, 41, 59, 0.5);
+            background: var(--card-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 30px;
-            transition: all 0.3s ease;
+            border-radius: 30px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .article-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            background: rgba(30, 41, 59, 0.8);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .article-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .article-card p {
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            line-height: 1.6;
         }
 
         .tag {
-            display: inline-block;
-            padding: 5px 12px;
-            background: rgba(99, 102, 241, 0.1);
             color: var(--accent);
-            border-radius: 100px;
             font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 15px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
         }
 
-        footer {
+        h3 { font-size: 1.6rem; margin: 10px 0; color: var(--text-primary); }
+        p { color: #adc178; margin-bottom: 30px; }
+
+        .btn {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 15px 25px;
+            border-radius: 20px;
+            text-decoration: none;
             text-align: center;
-            padding: 60px 0;
-            color: #475569;
-            border-top: 1px solid var(--glass-border);
-            margin-top: 100px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .btn.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            border-color: #444;
+            color: #666;
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="container">
-        <a href="index.html" class="logo">MINDCHECK</a>
-    </div>
-</nav>
+<nav><div class="container"><a href="index.html" class="logo">MINDCHECK</a></div></nav>
 
 <header class="hero">
     <div class="container">
-        <h1>Mintea ta,<br>fără filtre.</h1>
-        <p>Analize profunde, teste validate și resurse pentru cei care vor să înțeleagă ce se întâmplă în spatele zgomotului interior.</p>
-        <a href="#articole" class="btn">Explorează Resursele</a>
+        <h1>Mintea ta, fără filtre.</h1>
+        <p>Resurse pentru cei care vor să înțeleagă zgomotul interior prin știință și auto-reflecție.</p>
     </div>
 </header>
 
-<section class="container" id="articole">
+<section class="container">
     <div class="article-grid">
         
-        <!-- CARD ADHD ACTUALIZAT -->
+        <!-- CARD ADHD -->
         <div class="article-card">
             <div>
                 <span class="tag">Neurodivergență</span>
                 <h3>Arhitecții Haosului: Viața cu ADHD</h3>
-                <p>Ești un motor de Ferrari cu frâne de bicicletă? Află cum se simte de fapt ADHD-ul și fă testul ASRS complet de 18 întrebări.</p>
+                <p>Ești un motor de Ferrari cu frâne de bicicletă? Află cum se simte de fapt ADHD-ul și fă testul de 18 întrebări.</p>
             </div>
             <a href="articole/adhd.html" class="btn">Citește și testează-te</a>
         </div>
 
-        <!-- CARD ANXIETATE -->
+        <!-- CARD ANXIETATE - ACUM ACTIVAT -->
         <div class="article-card">
             <div>
                 <span class="tag">Sănătate Mentală</span>
                 <h3>Anxietatea: Prieten sau Dușman?</h3>
-                <p>De ce corpul tău reacționează la pericole care nu există? Înțelege mecanismul de "Fight or Flight" în secolul 21.</p>
+                <p>Înțelege mecanismul de "Fight or Flight" și paradoxul supraviețuirii în secolul 21. Include test de 15 întrebări.</p>
             </div>
-            <a href="#" class="btn" style="opacity: 0.5; cursor: not-allowed;">În curând</a>
+            <a href="articole/anxietate.html" class="btn">Citește și testează-te</a>
         </div>
 
         <!-- CARD BURNOUT -->
@@ -135,17 +136,11 @@
                 <h3>Capcana Productivității</h3>
                 <p>Cum să recunoști semnele timpurii ale burnout-ului înainte ca epuizarea să devină cronică.</p>
             </div>
-            <a href="#" class="btn" style="opacity: 0.5; cursor: not-allowed;">În curând</a>
+            <a href="#" class="btn disabled">În curând</a>
         </div>
 
     </div>
 </section>
-
-<footer>
-    <div class="container">
-        <p>&copy; 2026 MindCheck Project. Toate drepturile rezervate.</p>
-    </div>
-</footer>
 
 </body>
 </html>
